@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2000ms;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4000ms;
+  }
+}
+
+@keyframes blob-move {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  33% {
+    transform: scale(1.1) translate(30px, -50px);
+  }
+  66% {
+    transform: scale(0.9) translate(-20px, 20px);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.animate-blob-move {
+  animation: blob-move 8s infinite ease-in-out;
+}
+
+/* Circular Gradient Frame for all circular icons/images (no padding) */
+.circular-gradient-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #6366F1 0%, #E64980 60%, #FFC107 100%);
+  box-sizing: border-box;
+}
+.circular-gradient-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fff;
+  box-sizing: border-box;
+}
+/* For large circular images (e.g., program designer) */
+.circular-gradient-frame-lg {
+  width: 200px;
+  height: 200px;
+}
+.circular-gradient-inner-lg {
+  width: 192px;
+  height: 192px;
+}
