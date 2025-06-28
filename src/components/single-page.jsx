@@ -364,6 +364,10 @@ const SinglePage = () => {
 
   // Use the current goal state for crash course lookup
   let crashCourseGoal = goal || formData.goal;
+  // If Crash Course and goal is 'all', force to 'confidence' for fallback
+  if (typeDropdown === 'Crash Course' && crashCourseGoal === 'all') {
+    crashCourseGoal = 'confidence';
+  }
   let crashCourseName = undefined;
   if (typeDropdown === 'Crash Course') {
     crashCourseName = CRASH_COURSE_LOOKUP[crashCourseGoal];
@@ -383,6 +387,18 @@ const SinglePage = () => {
     } else if (crashCourseName === 'Requires Multiple Courses') {
       selectedCourse = null;
     }
+  } else if (
+    personaDropdown === 'anyone' &&
+    (typeDropdown === 'Short Term' || typeDropdown === 'Long Term')
+  ) {
+    // Fallback for Anyone + Short/Long Term (any goal)
+    const programName = typeDropdown === 'Short Term' ? 'COMPETITIVE EDGE' : 'COMPETITIVE EDGE+';
+    selectedCourse = COURSE_LOGIC.find(
+      (c) =>
+        c.programName === programName &&
+        c.courseType === typeDropdown &&
+        c.targetAudience === 'Others'
+    );
   } else {
     selectedCourse = COURSE_LOGIC.find(
       (c) =>
@@ -426,13 +442,14 @@ const SinglePage = () => {
   ];
 
   if (!selectedCourse) {
+    // Remove the confidence crash course button logic and fallback UI for this case
     return (
       <main className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-50 to-yellow-50">
         <div className="max-w-lg bg-white rounded-2xl shadow-xl border border-pink-200 px-8 py-12 flex flex-col items-center mt-24">
           <span className="text-3xl font-extrabold text-pink-500 mb-4">No Matching Program Found</span>
           <p className="text-lg text-gray-700 mb-6 text-center">We couldn't find a program matching your selection. Please try again or go back to the start.</p>
           <button
-            className="bg-indigo-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 shadow-lg text-lg"
+            className="bg-purple-500 text-white font-bold py-3 px-8 rounded-xl shadow text-lg hover:bg-purple-600 transition-colors duration-200 mb-4"
             onClick={() => navigate('/')}
           >
             Go to Home
