@@ -531,18 +531,21 @@ const HeroSection = () => {
       </div>
       <div className={`relative z-10 w-full max-w-5xl mx-auto py-12 px-6 sm:px-8 lg:px-12 text-left ${isInView ? 'animate-fadeInUp' : 'opacity-0'}`}>
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 tracking-tight" style={{ animationDelay: '0.1s' }}>Master English <span className="text-red-400">Communication</span></h1>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6" style={{ animationDelay: '0.3s' }}>
-          Express. Communicate. Dominate.
-        </h2>
-        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-8 max-w-3xl" style={{ animationDelay: '0.5s' }}>
-          Get personalized guidance from top English instructors through one-on-one sessions. Build fluency, precision, and confidence. Advance your career and daily communication with measurable results.
-        </p>
-        <div className="w-full flex flex-col items-start">
-          <Link to="/persona-selection" className="inline-block bg-white text-red-700 hover:bg-gray-100 font-bold py-4 px-10 rounded-full shadow-lg transition duration-500 ease-in-out transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl" style={{ animationDelay: '0.7s' }}>
-            Explore Courses
-          </Link>
-          <LearnersSocialProof />
+        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 flex flex-col items-center" style={{ animationDelay: '0.3s' }}>
+          <span>
+            Express<span className="text-red-400">.</span> Communicate<span className="text-red-400">.</span> Dominate<span className="text-red-400">.</span>
+          </span>
         </div>
+        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-4 text-gray-800 max-w-2xl mx-auto" style={{ animationDelay: '0.5s' }}>
+          Get personalized guidance from top English instructors, through one-on-one sessions. Build fluency, precision and confidence.
+        </p>
+        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-8 text-gray-800 max-w-2xl mx-auto" style={{ animationDelay: '0.5s' }}>
+          Advance in your career and improve daily communication; get measurable results.
+        </p>
+        <Link to="/persona-selection" className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl" style={{ animationDelay: '0.7s' }}>
+          Explore Courses
+        </Link>
+        <LearnersSocialProof />
       </div>
       <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-white opacity-20 rounded-full animate-float delay-100"></div>
       <div className="absolute bottom-1/3 right-1/4 w-6 h-6 bg-white opacity-20 rounded-full animate-float delay-300"></div>
