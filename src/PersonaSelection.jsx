@@ -13,6 +13,13 @@ const personas = [
 		description: 'Help your child build confidence and communication skills for a bright future.',
 	},
 	{
+		key: 'college-student',
+		icon: <img src="/Student.svg" alt="College Student" className="w-10 h-10" />, // replaced emoji
+		title: 'College Student',
+		age: 'For college students', // changed
+		description: 'Prepare for competitive exams. Stand out in interview with advanced English skills.',
+	},
+	{
 		key: 'professional',
 		icon: <img src="/Professional.svg" alt="Professional" className="w-10 h-10" />, // replaced emoji
 		title: 'Professional',
@@ -20,18 +27,11 @@ const personas = [
 		description: 'Advance your career with powerful English and communication skills.',
 	},
 	{
-		key: 'college-student',
-		icon: <img src="/Student.svg" alt="College Student" className="w-10 h-10" />, // replaced emoji
-		title: 'College Student',
-		age: 'For college & university students', // changed
-		description: 'Stand out in academics and beyond with advanced English skills.',
-	},
-	{
 		key: 'personal-growth',
 		icon: <img src="/Anyone.svg" alt="Personal Growth" className="w-10 h-10" />, // replaced emoji
 		title: 'Personal Growth', // changed from 'Teacher'
-		age: 'For anyone who wants Personal Growth', // updated from 'For educators and teachers'
-		description: 'Empower yourself and enhance your work/personal journey. with Fabulinus', // updated description
+		age: 'For anyone seeking self-improvement', // updated from 'For educators and teachers'
+		description: 'Unlock your potential and boost your confidence with expert guidance.', // updated description
 	},
 ];
 
@@ -58,11 +58,11 @@ export default function PersonaSelection() {
 			case 'parent':
 				detailPage = 'parent';
 				break;
-			case 'professional':
-				detailPage = 'professional';
-				break;
 			case 'college-student':
 				detailPage = 'college-student';
+				break;
+			case 'professional':
+				detailPage = 'professional';
 				break;
 			case 'personal-growth':
 				detailPage = 'personal-growth';
