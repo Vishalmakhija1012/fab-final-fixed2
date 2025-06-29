@@ -285,27 +285,6 @@ const JourneyTimeline = ({ selectedCourse, typeDropdown }) => {
           </div>
         );
       })}
-      {/* Verbal Quick Fix (impactful, sleek) */}
-      <div className="w-full max-w-md flex flex-row items-center gap-3 bg-white rounded-2xl shadow border border-indigo-200 px-6 py-4" style={{boxShadow:'0 2px 12px 0 rgba(99,102,241,0.10)', marginBottom:'-0.5rem'}}>
-        {/* Icon mapped to typeOfCourse */}
-        <img src={typeIconMap[typeDropdown]} alt="Verbal Quick Fix" style={{width:'40px', height:'40px', marginRight:'1.25rem', marginLeft:'0.25rem'}} />
-        <span style={{
-          fontSize: '1.45rem',
-          fontWeight: 800,
-          background: 'linear-gradient(90deg, #6366F1 0%, #E64980 60%, #FFC107 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
-          textFillColor: 'transparent',
-          letterSpacing: '0.04em',
-          textTransform: 'uppercase',
-          lineHeight: 1.1,
-          display: 'inline-block',
-          fontFamily: 'inherit',
-        }}>
-          VERBAL QUICK FIX
-        </span>
-      </div>
       <style>{`
         .timeline-section { padding-top: 2rem; padding-bottom: 4rem; min-height: 100vh; }
         .timeline-item { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1); will-change: opacity, transform; }
