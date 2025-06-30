@@ -417,6 +417,8 @@ const SinglePage = () => {
     { value: 'anyone', label: 'Anyone', icon: '/Anyone.svg' },
   ];
 
+  const year = new Date().getFullYear();
+
   if (!selectedCourse) {
     // Remove the confidence crash course button logic and fallback UI for this case
     return (
@@ -1068,7 +1070,7 @@ const SinglePage = () => {
                         persona: personaDropdown,
                         goal: goal,
                         typeOfCourse: typeDropdown,
-                        year: formData.year || year, // year from formData or state
+                        year: formData.year || new Date().getFullYear(), // year from formData or state
                         courseName: selectedCourse?.programName || '',
                         selectedCourse: selectedCourse
                       }
@@ -1076,7 +1078,19 @@ const SinglePage = () => {
                   >
                     Enroll Now
                   </button>
-                  <button className="bg-white border-2 border-indigo-400 text-indigo-600 font-bold py-3 px-8 rounded-xl shadow text-lg hover:bg-indigo-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400">
+                  <button
+                    className="bg-white border-2 border-indigo-400 text-indigo-600 font-bold py-3 px-8 rounded-xl shadow text-lg hover:bg-indigo-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400"
+                    onClick={() => navigate('/book-appointment', {
+                      state: {
+                        persona: personaDropdown,
+                        goal: goal,
+                        typeOfCourse: typeDropdown,
+                        year: formData.year || new Date().getFullYear(), // year from formData or state
+                        courseName: selectedCourse?.programName || '',
+                        selectedCourse: selectedCourse
+                      }
+                    })}
+                  >
                     Book a Call
                   </button>
                 </div>
