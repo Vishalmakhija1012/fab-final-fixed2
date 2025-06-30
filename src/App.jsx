@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Award, Book, Star, Briefcase, Trophy, Newspaper, Quote, CheckCircle, ChevronDown, Facebook, Twitter, Linkedin, Instagram, Menu } from 'lucide-react';
 import ScrollToTop from './components/ScrollToTop';
+import BookScroller from './components/BookScroller';
 
 // New ComparisonCell component (moved to top level for proper definition)
 const ComparisonCell = ({ status, detail, isFabulinusCol }) => {
@@ -577,16 +578,6 @@ const mediaLogosData = [
 
 // SolutionsSection (Section 2)
 const SolutionsSection = () => {
-    const books = [
-        { title: "Book 1", imgSrc: "/book1.png" },
-        { title: "Book 2", imgSrc: "/book2.png" },
-        { title: "Book 3", imgSrc: "/book3.png" },
-        { title: "Book 4", imgSrc: "/book4.png" },
-        { title: "Book 5", imgSrc: "/book5.png" },
-        { title: "Book 6", imgSrc: "/book6.png" },
-        { title: "Book 7", imgSrc: "/book7.png" }
-    ];
-
     const sectionRef = useRef(null);
     const isInView = useInViewAnimation(sectionRef);
 
@@ -595,50 +586,6 @@ const SolutionsSection = () => {
 
     const mediaCoverageRef = useRef(null);
     const mediaCoverageInView = useInViewAnimation(mediaCoverageRef);
-
-    const scrollContainerRef = useRef(null);
-    const [activeBook, setActiveBook] = useState(0);
-
-    const handleScroll = useCallback(() => {
-        const scrollContainer = scrollContainerRef.current;
-        if (scrollContainer) {
-            const scrollLeft = scrollContainer.scrollLeft;
-            const bookElements = Array.from(scrollContainer.children);
-
-            let closestIndex = 0;
-            let minDistance = Infinity;
-
-            bookElements.forEach((book, index) => {
-                const distance = Math.abs(book.offsetLeft - scrollLeft);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    closestIndex = index;
-                }
-            });
-            setActiveBook(closestIndex);
-        }
-    }, []);
-
-    useEffect(() => {
-        const scrollContainer = scrollContainerRef.current;
-        let scrollTimeout;
-
-        const debouncedScrollHandler = () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(handleScroll, 100);
-        };
-
-        if (scrollContainer) {
-            scrollContainer.addEventListener('scroll', debouncedScrollHandler);
-        }
-
-        return () => {
-            if (scrollContainer) {
-                scrollContainer.removeEventListener('scroll', debouncedScrollHandler);
-            }
-            clearTimeout(scrollTimeout);
-        };
-    }, [handleScroll]);
 
     return (
         <section 
@@ -661,63 +608,26 @@ const SolutionsSection = () => {
                     style={{ width: '320px', height: '320px', maxWidth: '250%', maxHeight: '250%' }}
                   />
                 </div>
-                <div className="relative w-full overflow-hidden mt-8 mb-16">
-                    <div
-                        ref={scrollContainerRef}
-                        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide py-4 -mx-2"
-                    >
-                        {books.map((book, index) => (
-                            <div key={index} className="flex-shrink-0 snap-start px-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                                <img src={book.imgSrc} alt={book.title} className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 hover:scale-[1.02] cursor-pointer" />
-                            </div>
-                        ))}
+                <BookScroller />
+            </div>
+            <div ref={achievementsListRef} className={`relative z-10 w-full max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-8 sm:p-10 bg-gradient-to-br from-red-50 to-orange-100 text-gray-800 rounded-2xl shadow-2xl ${achievementsListInView ? 'animate-fadeInUp' : 'opacity-0'}`}>
+                {achievementsData.map((achievement, index) => (
+                    <div key={index} className="flex items-center space-x-4 p-4 bg-white bg-opacity-20 rounded-lg transform transition-transform duration-300 hover:scale-105">
+                        {achievement.icon}
+                        <span className="text-lg font-medium">{achievement.text}</span>
                     </div>
-                    <div className="absolute top-0 left-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
-                    <div className="absolute top-0 right-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
-                </div>
+                ))}
+            </div>
 
-                <div className="flex justify-center space-x-3 mt-[-2rem] mb-8">
-                    {books.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => {
-                                const scrollContainer = scrollContainerRef.current;
-                                const bookElement = scrollContainer.children[index];
-                                if (scrollContainer && bookElement) {
-                                    scrollContainer.scrollTo({
-                                        left: bookElement.offsetLeft,
-                                        behavior: 'smooth'
-                                    });
-                                }
-                            }}
-                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${activeBook === index ? 'bg-red-400 scale-125' : 'bg-gray-300'}`}
-                            aria-label={`Go to book ${index + 1}`}
-                        ></button>
-                    ))}
-                </div>
-
-                <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-16 text-gray-700"> 
-                    Aparna Sinha is a celebrated Indian author and entrepreneur, recognized for her impactful writing, public communication and leadership. With six published books and numerous awards, she has inspired many. Her work is widely featured and she is a sought-after voice in media and interviews.
-                </p>
-                <div ref={achievementsListRef} className={`relative z-10 w-full max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-8 sm:p-10 bg-gradient-to-br from-red-50 to-orange-100 text-gray-800 rounded-2xl shadow-2xl ${achievementsListInView ? 'animate-fadeInUp' : 'opacity-0'}`}>
-                    {achievementsData.map((achievement, index) => (
-                        <div key={index} className="flex items-center space-x-4 p-4 bg-white bg-opacity-20 rounded-lg transform transition-transform duration-300 hover:scale-105">
-                            {achievement.icon}
-                            <span className="text-lg font-medium">{achievement.text}</span>
+            <div ref={mediaCoverageRef} className={`relative z-10 w-full max-w-5xl mx-auto mt-20 text-center ${mediaCoverageInView ? 'animate-fadeInUp' : 'opacity-0'}`}>
+                <h3 className="text-3xl font-bold mb-8 text-gray-800">Featured In</h3> 
+                <div className="grid grid-cols-3 gap-x-16 gap-y-12 justify-items-center items-center py-4"> 
+                    {mediaLogosData.slice(0, 9).map((logo, index) => (<div key={index} className={`flex items-center justify-center ${mediaCoverageInView ? 'opacity-100 animate-fadeInScale' : 'opacity-0'}`} style={{ animationDelay: `${index * 100}ms` }}>
+                            <img src={logo.src} alt={logo.alt} className="h-20 w-auto object-contain opacity-70 filter grayscale hover:filter-none transition-all duration-300 hover:opacity-100 transform hover:scale-110" />
                         </div>
                     ))}
                 </div>
-
-                <div ref={mediaCoverageRef} className={`relative z-10 w-full max-w-5xl mx-auto mt-20 text-center ${mediaCoverageInView ? 'animate-fadeInUp' : 'opacity-0'}`}>
-                    <h3 className="text-3xl font-bold mb-8 text-gray-800">Featured In</h3> 
-                    <div className="grid grid-cols-3 gap-x-16 gap-y-12 justify-items-center items-center py-4"> 
-                        {mediaLogosData.slice(0, 9).map((logo, index) => (<div key={index} className={`flex items-center justify-center ${mediaCoverageInView ? 'opacity-100 animate-fadeInScale' : 'opacity-0'}`} style={{ animationDelay: `${index * 100}ms` }}>
-                                <img src={logo.src} alt={logo.alt} className="h-20 w-auto object-contain opacity-70 filter grayscale hover:filter-none transition-all duration-300 hover:opacity-100 transform hover:scale-110" />
-                            </div>
-                        ))}
-                    </div>
-                    <p className="text-center text-lg sm:text-xl md:text-2xl text-gray-600 mt-12">and more...</p> 
-                </div>
+                <p className="text-center text-lg sm:text-xl md:text-2xl text-gray-600 mt-12">and more...</p> 
             </div>
         </section>
     );

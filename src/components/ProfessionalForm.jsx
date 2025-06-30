@@ -2,6 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Footer } from './Footer';
 
+// Utility function to convert a string to sentence case
+function toSentenceCase(str) {
+  if (!str) return '';
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
 export default function ProfessionalForm() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -87,11 +93,13 @@ export default function ProfessionalForm() {
                       >
                         <option value="" disabled>Select goal</option>
                         <option value="speak-better">Speak more confidently</option>
-                        <option value="public-comm.">Public Communication</option>
+                        <option value="confidence">Confidence</option>
+                        <option value="communication">Communication</option>
+                        <option value="public-comm.">Leadership</option>
                         <option value="networking">Networking</option>
                         <option value="self-expression">Self-expression</option>
-                        <option value="clear-interviews">Clear Interviews</option>
                         <option value="exam-prep">Exam Prep</option>
+                        <option value="clear-interviews">Clear Interviews</option>
                         <option value="all">All the above</option>
                       </select>
                       <span className="pointer-events-none absolute right-4 top-1/2 transform -translate-y-1/2 text-red-500">

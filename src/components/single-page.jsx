@@ -4,6 +4,7 @@ import { COURSE_LOGIC, CRASH_COURSE_LOOKUP } from './courseLogic';
 import { FaArrowLeft, FaCheckCircle, FaUserGraduate, FaUsers, FaStar, FaAward, FaRegCalendarAlt, FaGift, FaChalkboardTeacher, FaBars, FaGripLines } from 'react-icons/fa';
 import { Footer } from './Footer';
 import CrashCourseIcon from "./CrashCourseIcon";
+import BookScroller from './BookScroller';
 
 const JourneyTimeline = ({ selectedCourse, typeDropdown }) => {
   // Move typeIconMap inside JourneyTimeline and ensure typeDropdown is passed as a prop from SinglePage
@@ -739,9 +740,7 @@ const SinglePage = () => {
           </div>
         </div>
         {/* Carousel below */}
-        <div className="mt-12 w-full">
-          {/* <AutoScrollingMediaCarousel /> */}
-        </div>
+        <BookScroller />
       </section>
       {/* PRICING */}
       <section
