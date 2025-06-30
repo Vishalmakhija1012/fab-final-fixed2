@@ -1070,9 +1070,10 @@ const SinglePage = () => {
                         persona: personaDropdown,
                         goal: goal,
                         typeOfCourse: typeDropdown,
-                        year: formData.year || new Date().getFullYear(), // year from formData or state
+                        year: formData.year || new Date().getFullYear(),
                         courseName: selectedCourse?.programName || '',
-                        selectedCourse: selectedCourse
+                        selectedCourse: selectedCourse,
+                        cta: 'Enroll Now'
                       }
                     })}
                   >
@@ -1085,9 +1086,10 @@ const SinglePage = () => {
                         persona: personaDropdown,
                         goal: goal,
                         typeOfCourse: typeDropdown,
-                        year: formData.year || new Date().getFullYear(), // year from formData or state
+                        year: formData.year || new Date().getFullYear(),
                         courseName: selectedCourse?.programName || '',
-                        selectedCourse: selectedCourse
+                        selectedCourse: selectedCourse,
+                        cta: 'Book a Call'
                       }
                     })}
                   >

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Footer } from './Footer';
 import ScrollToTop from './ScrollToTop';
@@ -24,6 +24,7 @@ export default function BookAppointment() {
   const year = navState.year || localStorage.getItem('year') || '';
   const courseName = courseDetails.programName || navState.courseName || '';
   const price = courseDetails.offerPrice || navState.price || '';
+  const cta = navState.cta || '';
 
   // Save journey context to localStorage if present in navState (for future fallback)
   if (navState.persona) localStorage.setItem('persona', navState.persona);
@@ -77,6 +78,7 @@ export default function BookAppointment() {
         year,
         courseName,
         price, // price is included if available, but not required
+        cta, // capture which CTA was clicked
         // Add more course details if available
         duration: courseDetails.duration || '',
         live1on1: courseDetails.live1on1 || '',
@@ -98,6 +100,20 @@ export default function BookAppointment() {
       setSubmitting(false);
     }
   };
+
+  // Scroll to top when thank you message is shown
+  useEffect(() => {
+    if (showThankYou) {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }, 50);
+    }
+  }, [showThankYou]);
 
   return (
     <>
