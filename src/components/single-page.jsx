@@ -19,7 +19,7 @@ const JourneyTimeline = ({ selectedCourse, typeDropdown }) => {
       title: "Onboarding",
       subtitle: (
         <span className="flex flex-col items-center md:items-start gap-2">
-          <span className="text-2xl sm:text-3xl font-normal uppercase text-red-400 leading-none tracking-tight mb-1">Step 1: Onboarding</span>
+          <span className="text-2xl sm:text-3xl font-normal text-red-400 leading-none tracking-tight mb-1">Step 1: Onboarding</span>
           <ul className="pl-6 space-y-1 text-left">
             <li className="text-base text-gray-800 flex items-start gap-2">
               <span className="inline-block w-2 h-2 mt-2 rounded-full bg-pink-400 flex-shrink-0"></span>
@@ -40,7 +40,7 @@ const JourneyTimeline = ({ selectedCourse, typeDropdown }) => {
       title: "Skill Assessment",
       subtitle: (
         <span className="flex flex-col items-center md:items-start gap-2">
-          <span className="text-2xl sm:text-3xl font-normal uppercase text-red-400 leading-none tracking-tight mb-1">Step 2: Skill Assessment</span>
+          <span className="text-2xl sm:text-3xl font-normal text-red-400 leading-none tracking-tight mb-1">Step 2: Skill Assessment</span>
           <ul className="pl-6 space-y-1 text-left">
             <li className="text-base text-gray-800 flex items-start gap-2">
               <span className="inline-block w-2 h-2 mt-2 rounded-full bg-yellow-400 flex-shrink-0"></span>
@@ -57,7 +57,7 @@ const JourneyTimeline = ({ selectedCourse, typeDropdown }) => {
       title: "Custom Plan",
       subtitle: (
         <span className="flex flex-col items-center md:items-start gap-2">
-          <span className="text-2xl sm:text-3xl font-normal uppercase text-red-400 leading-none tracking-tight mb-1">Step 3: Custom Plan</span>
+          <span className="text-2xl sm:text-3xl font-normal text-red-400 leading-none tracking-tight mb-1">Step 3: Custom Plan</span>
           <ul className="pl-6 space-y-1 text-left">
             <li className="text-base text-gray-800 flex items-start gap-2">
               <span className="inline-block w-2 h-2 mt-2 rounded-full bg-pink-400 flex-shrink-0"></span>
@@ -78,7 +78,7 @@ const JourneyTimeline = ({ selectedCourse, typeDropdown }) => {
       title: "Mentoring",
       subtitle: (
         <span className="flex flex-col items-center md:items-start gap-2">
-          <span className="text-2xl sm:text-3xl font-normal uppercase text-red-400 leading-none tracking-tight mb-1">Step 4: Mentoring</span>
+          <span className="text-2xl sm:text-3xl font-normal text-red-400 leading-none tracking-tight mb-1">Step 4: Mentoring</span>
           <ul className="pl-6 space-y-1 text-left">
             <li className="text-base text-gray-800 flex items-start gap-2">
               <span className="inline-block w-2 h-2 mt-2 rounded-full bg-pink-400 flex-shrink-0"></span>
@@ -95,7 +95,7 @@ const JourneyTimeline = ({ selectedCourse, typeDropdown }) => {
       title: "Live Classes",
       subtitle: (
         <span className="flex flex-col items-center md:items-start gap-2">
-          <span className="text-2xl sm:text-3xl font-normal uppercase text-red-400 leading-none tracking-tight mb-1">Step 5: Live Classes</span>
+          <span className="text-2xl sm:text-3xl font-normal text-red-400 leading-none tracking-tight mb-1">Step 5: Live Classes</span>
           <ul className="pl-6 space-y-1 text-left">
             <li className="text-base text-gray-800 flex items-start gap-2">
               <span className="inline-block w-2 h-2 mt-2 rounded-full bg-pink-400 flex-shrink-0"></span>
@@ -116,7 +116,7 @@ const JourneyTimeline = ({ selectedCourse, typeDropdown }) => {
       title: "Home Kits",
       subtitle: (
         <span className="flex flex-col items-center md:items-start gap-2">
-          <span className="text-2xl sm:text-3xl font-normal uppercase text-red-400 leading-none tracking-tight mb-1">Step 6: Home Kits</span>
+          <span className="text-2xl sm:text-3xl font-normal text-red-400 leading-none tracking-tight mb-1">Step 6: Home Kits</span>
           <ul className="pl-6 space-y-1 text-left">
             <li className="text-base text-gray-800 flex items-start gap-2">
               <span className="inline-block w-2 h-2 mt-2 rounded-full bg-pink-400 flex-shrink-0"></span>
@@ -613,7 +613,7 @@ const SinglePage = () => {
           </h1>
           <p className="text-lg sm:text-2xl text-gray-700 font-medium max-w-2xl mx-auto mt-6 text-center leading-relaxed">
             {selectedCourse?.mainLine
-              ? selectedCourse.mainLine.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+              ? selectedCourse.mainLine.replace(/-/g, ' ')
               : ''}
           </p>
         </div>
@@ -940,11 +940,7 @@ const SinglePage = () => {
                       display: 'flex', alignItems: 'center', justifyContent: 'center', width: '54px', height: '54px', borderRadius: '50%', background: 'linear-gradient(90deg, #6366F1 0%, #E64980 60%, #FFC107 100%)', padding: '3px', marginRight: '1rem', marginLeft: '0.25rem',
                     }}>
                       <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '46px', height: '46px', borderRadius: '50%', background: '#fff'}}>
-                        {idx === 0 ? (
-                          <img src="/6.svg" alt="Live Classes Icon" style={{width:'32px', height:'32px'}} />
-                        ) : (
-                          <img src={item.icon} alt={`Method ${idx+1}`} style={{width:'32px', height:'32px', objectFit:'contain'}} />
-                        )}
+                        {item.icon && <img src={item.icon} alt={item.text} style={{width:'32px', height:'32px'}} />}
                       </span>
                     </span>
                     <span style={{fontSize:'1.05rem', fontWeight:400, color:'#475569', lineHeight:1.25, fontStyle:'italic'}}>
