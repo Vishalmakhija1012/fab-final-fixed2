@@ -3,7 +3,7 @@ export const COURSE_LOGIC = [
     programName: 'YOUNG LEARNERS PROGRAM',
     targetAudience: 'Parents',
     courseType: 'Short Term',
-    mainLine: 'Level based Program to improve English communication, and build confidence in young kids',
+    mainLine: 'Level based program to improve english communication, and build confidence in young kids.',
     bullets: [
       'Build foundational English skills',
       'Develop strong communication, self-expression',
@@ -20,7 +20,7 @@ export const COURSE_LOGIC = [
     programName: 'ADVANCED ENGLISH',
     targetAudience: 'Parents',
     courseType: 'Long Term',
-    mainLine: 'Comprehensive course structure focussing on holistic development, communication, and personality development',
+    mainLine: 'Comprehensive course structure focussing on holistic development, communication and personality development.',
     bullets: [
       'Master advanced verbal and written english communication skills. Public speaking',
       'Achieve fluent, confident communication .',
@@ -37,7 +37,7 @@ export const COURSE_LOGIC = [
     programName: 'COMPETITIVE EDGE',
     targetAudience: 'Others',
     courseType: 'Short Term',
-    mainLine: 'Program aimed to provide an extra edge. Build to give confidence in written and verbal commuincation',
+    mainLine: 'Program aimed to provide an extra edge. Build to give confidence in written and verbal commuincation.',
     bullets: [
       "Master professional English to thrive in today's global landscape.",
       'Be a confident comminicator',
@@ -71,7 +71,7 @@ export const COURSE_LOGIC = [
     programName: 'WRITTEN QUICK FIX',
     targetAudience: 'Any',
     courseType: 'Crash Course',
-    mainLine: 'Rapidly enhance written communication for clear, impactful, and effective text creation.',
+    mainLine: 'Get tools and tips to prepare for exams. Enhance verbal English skills for impactful and creative communication.',
     bullets: [
       'Sharpen grammar, vocabulary',
       'Structure thoughts',
@@ -88,7 +88,7 @@ export const COURSE_LOGIC = [
     programName: 'VERBAL QUICK FIX',
     targetAudience: 'Any',
     courseType: 'Crash Course',
-    mainLine: 'Quickly enhance verbal communication skills for effective, clear, and confident spoken interactions.',
+    mainLine: 'Quickly enhance verbal communication skills, for effective, clear, and confident spoken interactions.',
     bullets: [
       'Enhance spoken fluency',
       'Improve pronunciation, tone',
@@ -105,7 +105,7 @@ export const COURSE_LOGIC = [
     programName: 'CONFIDENCE QUICK FIX',
     targetAudience: 'Any',
     courseType: 'Crash Course',
-    mainLine: 'Gain instant confidence to speak clearly, without hesitation, boosting your communication power.',
+    mainLine: 'Gain instant confidence to speak clearly, without hesitation. Boost your communication power.',
     bullets: [
       'Overcome communication anxiety',
       'Project self-assurance',
@@ -122,7 +122,7 @@ export const COURSE_LOGIC = [
     programName: 'STORYTELLING QUICK FIX',
     targetAudience: 'Any',
     courseType: 'Crash Course',
-    mainLine: 'Learn impactful storytelling fast, to captivate and persuade any audience with ease.',
+    mainLine: 'Master impactful storytelling to drive your key message with intent and influence.',
     bullets: [
       'Craft engaging narratives',
       'Deliver memorable messages',
