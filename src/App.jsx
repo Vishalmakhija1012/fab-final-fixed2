@@ -529,17 +529,17 @@ const HeroSection = () => {
         <svg className="absolute top-0 -left-1/4 w-3/4 h-auto transform rotate-12 animate-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#E57373" d="M47.7,-64C61.4,-50.2,71.7,-33.4,70.5,-16.9C69.3,-0.5,56.7,15.6,45.8,28.2C34.9,40.9,25.7,50,13.7,56.5C1.6,62.9,-13.4,66.8,-24.5,61.9C-35.7,57,-43.1,43.3,-50.3,30.3C-57.5,17.2,-64.5,4.7,-64.8,-8.1C-65.1,-21,-58.6,-34,-48.5,-45.5C-38.3,-57,-24.5,-67,-9.6,-70.6C5.4,-74.2,20.8,-71.4,32.3,-64.4L32.3,-64.4Z" transform="translate(100 100)" /></svg>
         <svg className="absolute bottom-0 -right-1/4 w-3/4 h-auto transform -rotate-45 animate-blob animation-delay-2000" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#FFB74D" d="M50.2,-47.9C64.6,-40.4,75.4,-23.4,76.5,-5.9C77.5,11.6,68.9,29.6,56.9,41.9C44.9,54.2,29.5,60.8,12.7,62.8C-4.1,64.9,-22.4,62.4,-37.2,54.8C-52,47.2,-63.3,34.5,-69.1,18.4C-74.9,2.3,-75.2,-17.3,-67.2,-30.9C-59.2,-44.6,-43,-52.3,-27.1,-56C-11.2,-59.7,3.3,-59.5,16.5,-56.9L16.5,-56.9Z" transform="translate(100 100)" /></svg>
       </div>
-      <div className={`relative z-10 w-full max-w-5xl mx-auto py-12 px-6 sm:px-8 lg:px-12 text-left ${isInView ? 'animate-fadeInUp' : 'opacity-0'}`}>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 tracking-tight" style={{ animationDelay: '0.1s' }}>Master English <span className="text-red-400">Communication</span></h1>
-        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 flex flex-col items-center" style={{ animationDelay: '0.3s' }}>
+      <div className={`relative z-10 w-full max-w-5xl mx-auto py-12 px-6 sm:px-8 lg:px-12 text-left ${isInView ? 'animate-fadeInUp' : 'opacity-0'}`}> 
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 tracking-tight text-left" style={{ animationDelay: '0.1s' }}>Master English <span className="text-red-400">Communication</span></h1>
+        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 flex flex-col items-start text-left" style={{ animationDelay: '0.3s' }}>
           <span>
             Express<span className="text-red-400">.</span> Communicate<span className="text-red-400">.</span> Dominate<span className="text-red-400">.</span>
           </span>
         </div>
-        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-4 text-gray-800 max-w-2xl mx-auto" style={{ animationDelay: '0.5s' }}>
+        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-4 text-gray-800 max-w-2xl text-left" style={{ animationDelay: '0.5s' }}>
           Get personalized guidance from top English instructors, through one-on-one sessions. Build fluency, precision and confidence.
         </p>
-        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-8 text-gray-800 max-w-2xl mx-auto" style={{ animationDelay: '0.5s' }}>
+        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-8 text-gray-800 max-w-2xl text-left" style={{ animationDelay: '0.5s' }}>
           Advance in your career and improve daily communication; get measurable results.
         </p>
         <Link to="/persona-selection" className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl" style={{ animationDelay: '0.7s' }}>
@@ -652,7 +652,15 @@ const SolutionsSection = () => {
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-12 text-gray-800 leading-snug" style={{ animationDelay: '0.3s' }}>
                     Learn Personally from the best-selling Author Aparna Sinha.
                 </h2>
-                
+                {/* Aparna's image - restored and sized as in Program Designer section */}
+                <div className="flex justify-center mb-8">
+                  <img 
+                    src="/6.svg" 
+                    alt="Aparna Sinha" 
+                    className="rounded-full border-4 border-pink-200 shadow-xl object-cover bg-white solutions-aparna-img"
+                    style={{ width: '320px', height: '320px', maxWidth: '250%', maxHeight: '250%' }}
+                  />
+                </div>
                 <div className="relative w-full overflow-hidden mt-8 mb-16">
                     <div
                         ref={scrollContainerRef}
@@ -689,7 +697,7 @@ const SolutionsSection = () => {
                 </div>
 
                 <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-16 text-gray-700"> 
-                    Aparna Sinha is a celebrated Indian author and entrepreneur, recognized for her impactful writing and leadership. With six published books and numerous awards, she has inspired many. Her work is widely featured and she is a sought-after voice in media and interviews.
+                    Aparna Sinha is a celebrated Indian author and entrepreneur, recognized for her impactful writing, public communication and leadership. With six published books and numerous awards, she has inspired many. Her work is widely featured and she is a sought-after voice in media and interviews.
                 </p>
                 <div ref={achievementsListRef} className={`relative z-10 w-full max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-8 sm:p-10 bg-gradient-to-br from-red-50 to-orange-100 text-gray-800 rounded-2xl shadow-2xl ${achievementsListInView ? 'animate-fadeInUp' : 'opacity-0'}`}>
                     {achievementsData.map((achievement, index) => (
