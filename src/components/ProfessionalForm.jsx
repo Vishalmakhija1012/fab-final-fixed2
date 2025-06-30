@@ -87,10 +87,11 @@ export default function ProfessionalForm() {
                       >
                         <option value="" disabled>Select goal</option>
                         <option value="speak-better">Speak more confidently</option>
-                        <option value="leadership">Leadership skills</option>
+                        <option value="public-comm.">Public Communication</option>
                         <option value="networking">Networking</option>
                         <option value="self-expression">Self-expression</option>
                         <option value="clear-interviews">Clear Interviews</option>
+                        <option value="exam-prep">Exam Prep</option>
                         <option value="all">All the above</option>
                       </select>
                       <span className="pointer-events-none absolute right-4 top-1/2 transform -translate-y-1/2 text-red-500">

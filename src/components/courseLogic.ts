@@ -141,8 +141,8 @@ export const COURSE_LOGIC = [
 export const CRASH_COURSE_LOOKUP: { [goal: string]: string } = {
   confidence: 'CONFIDENCE QUICK FIX',
   communication: 'VERBAL QUICK FIX',
-  leadership: 'STORYTELLING QUICK FIX',
-  'clear-exams': 'WRITTEN QUICK FIX',
+  'public-comm.': 'STORYTELLING QUICK FIX',
+  'exam-prep': 'WRITTEN QUICK FIX',
   'clear-interviews': 'VERBAL QUICK FIX',
   'speak-better': 'VERBAL QUICK FIX',
   networking: 'CONFIDENCE QUICK FIX',

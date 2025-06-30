@@ -91,7 +91,8 @@ export default function CollegeStudentForm() {
                         </option>
                         <option value="confidence">Confidence</option>
                         <option value="communication">Communication</option>
-                        <option value="leadership">Leadership</option>
+                        <option value="public-comm.">Public Communication</option>
+                        <option value="exam-prep">Exam Prep</option>
                         <option value="clear-interviews">Clear Interviews</option>
                         <option value="all">All the above</option>
                       </select>

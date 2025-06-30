@@ -88,8 +88,8 @@ export default function ParentForm() {
                         <option value="" disabled>Select goal</option>
                         <option value="confidence">Confidence</option>
                         <option value="communication">Communication</option>
-                        <option value="leadership">Leadership</option>
-                        <option value="clear-exams">Clear Exams</option>
+                        <option value="public-comm.">Public Communication</option>
+                        <option value="exam-prep">Exam Prep</option>
                         <option value="all">All the above</option>
                       </select>
                       <span className="pointer-events-none absolute right-4 top-1/2 transform -translate-y-1/2 text-rose-500">

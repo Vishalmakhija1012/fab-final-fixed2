@@ -487,30 +487,47 @@ const SinglePage = () => {
               style={{ minWidth: 0, fontWeight: 400, width: 'auto', padding: 0, margin: 0 }}
             >
               {goal ? (
-                <img src={`/${goal}.svg`} alt={goal} className="w-5 h-5" />
+                <img src={`/${(() => {
+                  if (goal === 'public-comm.') return 'leadership.svg';
+                  if (goal === 'exam-prep') return 'clear-exams.svg';
+                  return `${goal}.svg`;
+                })()}`} alt={goal} className="w-5 h-5" />
               ) : (
                 <FaAward className="w-5 h-5" />
               )}
-              <span style={{ textTransform: 'capitalize' }}>{goal || 'Select Goal'}</span>
+              <span style={{ textTransform: 'capitalize' }}>{(() => {
+                if (goal === 'public-comm.') return 'Public Communication';
+                if (goal === 'exam-prep') return 'Exam Prep';
+                return goal || 'Select Goal';
+              })()}</span>
               <FaArrowLeft className={`ml-1 text-base rotate-180 text-red-400 transition-transform ${showGoalDropdown ? 'rotate-90' : ''}`} />
             </button>
             {showGoalDropdown && (
               <div className="fixed inset-0 z-50 flex items-start justify-center sm:justify-end pt-[90px] px-2" style={{pointerEvents:'none'}}>
                 <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" style={{pointerEvents:'auto'}}>
                   <div className="w-full bg-white border border-yellow-200 rounded-xl shadow-lg overflow-x-auto min-w-0 goal-dropdown-menu">
-                    {['confidence', 'communication', 'leadership', 'networking', 'self-expression', 'clear-exams', 'clear-interviews', 'all'].map((g) => (
-                      <button
-                        key={g}
-                        className={`w-full flex items-center gap-2 px-4 py-2 text-left hover:bg-yellow-50 ${goal === g ? 'bg-yellow-100 font-bold' : ''}`}
-                        onClick={() => {
-                          setGoal(g);
-                          setShowGoalDropdown(false);
-                        }}
-                      >
-                        <img src={`/${g}.svg`} alt={g} className="w-5 h-5" />
-                        <span style={{ textTransform: 'lowercase' }}>{g}</span>
-                      </button>
-                    ))}
+                    {[
+  { value: 'confidence', label: 'confidence', icon: 'confidence.svg' },
+  { value: 'communication', label: 'communication', icon: 'communication.svg' },
+  { value: 'public-comm.', label: 'Public Communication', icon: 'leadership.svg' },
+  { value: 'networking', label: 'networking', icon: 'networking.svg' },
+  { value: 'self-expression', label: 'self-expression', icon: 'self-expression.svg' },
+  { value: 'exam-prep', label: 'Exam Prep', icon: 'clear-exams.svg' },
+  { value: 'clear-interviews', label: 'clear-interviews', icon: 'clear-interviews.svg' },
+  { value: 'all', label: 'all', icon: 'all.svg' },
+].map((g) => (
+  <button
+    key={g.value}
+    className={`w-full flex items-center gap-2 px-4 py-2 text-left hover:bg-yellow-50 ${goal === g.value ? 'bg-yellow-100 font-bold' : ''}`}
+    onClick={() => {
+      setGoal(g.value);
+      setShowGoalDropdown(false);
+    }}
+  >
+    <img src={`/${g.icon}`} alt={g.label} className="w-5 h-5" />
+    <span style={{ textTransform: 'capitalize' }}>{g.label}</span>
+  </button>
+))}
                   </div>
                 </div>
               </div>
@@ -955,12 +972,9 @@ const SinglePage = () => {
                       <img src="/calendar.svg" alt="Time" style={{width:'32px', height:'32px'}} />
                     </span>
                   </span>
-                  <div className="flex flex-col items-start">
-                    <span style={{fontSize:'1.08rem', fontWeight:600, color:'#e11d48', marginBottom:'0.15rem'}}>Duration</span>
-                    <span style={{fontSize:'1.05rem', fontWeight:400, color:'#475569', lineHeight:1.25, fontStyle:'italic'}}>
-                      {COURSE_TYPE_LABELS[typeDropdown]?.duration || 'N/A'}
-                    </span>
-                  </div>
+                  <span style={{fontSize:'1.05rem', fontWeight:400, color:'#475569', lineHeight:1.25, fontStyle:'italic'}}>
+                    {typeDropdown === 'Crash Course' ? '1 month' : typeDropdown === 'Short Term' ? '3 months' : '1 year'}
+                  </span>
                 </div>
               </div>
             </div>
