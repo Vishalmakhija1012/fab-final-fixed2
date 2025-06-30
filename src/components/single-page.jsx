@@ -258,10 +258,6 @@ const JourneyTimeline = ({ selectedCourse, typeDropdown }) => {
               ${item.type === 'outcome' ? 'md:self-center md:text-center' : ''}
             `}
           >
-            {/* Dot (desktop) for steps only */}
-            {item.type === 'step' && (
-              <span className={`hidden md:block absolute top-1/2 z-10 w-8 h-8 rounded-full border-4 border-white shadow-lg ${item.dot} transition-all duration-500`} style={{left: idx%2===0 ? '100%' : undefined, right: idx%2!==0 ? '100%' : undefined, transform: 'translateY(-50%)'}}></span>
-            )}
             {/* Card */}
             <div className={`relative z-20 bg-white rounded-2xl shadow-xl border border-gray-200 px-6 py-8 flex flex-col items-center md:items-${item.type === 'step' ? (idx%2===0?'end':'start') : 'center'} text-center md:text-${item.type === 'step' ? (idx%2===0?'right':'left') : 'center'} w-full transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl`}>
               {/* Step 1 avatar */}
