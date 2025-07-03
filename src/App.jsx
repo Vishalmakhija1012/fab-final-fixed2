@@ -339,10 +339,7 @@ const Footer = () => {
                     <div className="flex flex-col items-center">
                         <h3 className="text-xl sm:text-2xl font-bold mb-4">Contact Us</h3>
                         <p className="text-center text-gray-300">
-                            Email: info@fabulinus.com
-                        </p>
-                        <p className="text-center text-gray-300">
-                            Phone: +91 123 456 7890
+                            Email: support@fabulinus.in
                         </p>
                     </div>
                 </div>
