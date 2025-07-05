@@ -315,7 +315,8 @@ const SinglePage = () => {
   };
 
   let persona = journeyId;
-  if (!['parent', 'professional', 'college-student', 'personal-growth'].includes(journeyId)) {
+  // Accept both 'anyone' and 'personal-growth' for backward compatibility
+  if (!['parent', 'professional', 'college-student', 'anyone'].includes(journeyId)) {
     if (formData.year && /\d/.test(formData.year)) persona = 'parent';
     else persona = 'professional';
   }
@@ -414,7 +415,7 @@ const SinglePage = () => {
     { value: 'parent', label: 'Parent', icon: '/Parent.svg' },
     { value: 'professional', label: 'Professional', icon: '/Professional.svg' },
     { value: 'college-student', label: 'College Student', icon: '/Student.svg' },
-    { value: 'anyone', label: 'Anyone', icon: '/Anyone.svg' },
+    { value: 'anyone', label: 'Anyone', icon: '/Anyone.svg' }, // changed value from 'personal-growth' to 'anyone'
   ];
 
   const year = new Date().getFullYear();
