@@ -1,6 +1,57 @@
-import { useNavigate } from 'react-router-dom';
+import { Menu } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Footer } from './Footer';
+
+const Header = ({ showExploreCourses = true }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navLinks = [
+    { name: "Home", href: "#hero" },
+    { name: "Our Mentors", href: "#solutions" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "GREAT Approach", href: "#great-framework" },
+    { name: "Why Us", href: "#how-we-are-different" },
+    { name: "FAQs", href: "#faqs" },
+    { name: "Contact", href: "#contact" }
+  ];
+  const handleNavClick = (e) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-4 bg-white shadow-lg rounded-b-3xl">
+      <div className="text-2xl font-extrabold text-red-400">fabulinus</div>
+      <div className="flex items-center gap-2">
+        {showExploreCourses && (
+          <Link
+            to="/persona-selection"
+            className="bg-red-500 text-white hover:bg-red-600 font-bold px-4 py-2 md:px-8 md:py-3 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-sm md:text-base"
+            style={{ minWidth: 'auto' }}
+          >
+            Explore Courses
+          </Link>
+        )}
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="flex items-center justify-center p-0 m-0 bg-transparent border-none outline-none focus:outline-none">
+          <Menu size={32} className="text-red-600" />
+        </button>
+      </div>
+      {isMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-white shadow-lg">
+          <nav className="flex flex-col items-end space-y-4 py-4 pr-6">
+            {navLinks.map(link => (
+              <a key={link.name} href={link.href} onClick={handleNavClick} className="text-red-600 hover:text-red-800 font-medium transition-colors duration-300">{link.name}</a>
+            ))}
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
 
 export default function PersonalGrowthForm() {
   const navigate = useNavigate();
@@ -17,7 +68,7 @@ export default function PersonalGrowthForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const journeyId = 'personal-growth';
+    const journeyId = 'anyone';
     navigate('/finding-course', { state: { ...form, journeyId } });
   };
 
@@ -25,7 +76,8 @@ export default function PersonalGrowthForm() {
 
  return (
     <>
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-rose-50 to-amber-100">
+    <Header showExploreCourses={false} />
+    <main className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 flex flex-col items-center justify-center pt-32 md:pt-32 lg:pt-32">
       <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">
