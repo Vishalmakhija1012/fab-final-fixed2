@@ -99,9 +99,9 @@ const GreatFrameworkSection = () => {
       </div>
       <div className={`relative z-10 w-full max-w-5xl mx-auto text-center mt-20 ${isInView ? 'animate-fadeInUp' : 'opacity-0'}`}>
         <div className="w-full flex flex-col items-center">
-          <Link to="/persona-selection" className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl">
+          {/* <Link to="/persona-selection" className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl">
             Explore Courses
-          </Link>
+          </Link> */}
           <LearnersSocialProof />
         </div>
       </div>
@@ -460,18 +460,20 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-4 bg-white shadow-lg rounded-b-3xl">
       <div className="text-2xl font-extrabold text-red-400">fabulinus</div>
-      <nav className="hidden md:flex space-x-6">
-        {navLinks.map(link => (
-          <a key={link.name} href={link.href} onClick={handleNavClick} className="text-red-600 hover:text-red-800 font-medium transition-colors duration-300">{link.name}</a>
-        ))}
-      </nav>
-      <div className="md:hidden">
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <Menu size={28} className="text-red-600" />
+      <div className="flex items-center gap-2">
+        <Link
+          to="/persona-selection"
+          className="bg-red-500 text-white hover:bg-red-600 font-bold px-4 py-2 md:px-8 md:py-3 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-sm md:text-base"
+          style={{ minWidth: 'auto' }}
+        >
+          Explore Courses
+        </Link>
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="flex items-center justify-center p-0 m-0 bg-transparent border-none outline-none focus:outline-none">
+          <Menu size={32} className="text-red-600" />
         </button>
       </div>
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-lg md:hidden">
+        <div className="absolute top-full left-0 right-0 bg-white shadow-lg">
           <nav className="flex flex-col items-end space-y-4 py-4 pr-6">
             {navLinks.map(link => (
               <a key={link.name} href={link.href} onClick={handleNavClick} className="text-red-600 hover:text-red-800 font-medium transition-colors duration-300">{link.name}</a>
@@ -540,9 +542,9 @@ const HeroSection = () => {
         <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-8 text-gray-800 max-w-2xl text-left" style={{ animationDelay: '0.5s' }}>
           Advance in your career and improve daily communication; get measurable results.
         </p>
-        <Link to="/persona-selection" className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl" style={{ animationDelay: '0.7s' }}>
+        {/* <Link to="/persona-selection" className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl" style={{ animationDelay: '0.7s' }}>
           Explore Courses
-        </Link>
+        </Link> */}
         <LearnersSocialProof />
       </div>
       <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-white opacity-20 rounded-full animate-float delay-100"></div>
@@ -702,9 +704,9 @@ const TestimonialsSection = () => {
       </div>
       <div className={`relative z-10 w-full max-w-5xl mx-auto text-center mt-20 ${isInView ? 'animate-fadeInUp' : 'opacity-0'}`}>
         <div className="w-full flex flex-col items-center">
-          <Link to="/persona-selection" className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl">
+          {/* <Link to="/persona-selection" className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl">
             Explore Courses
-          </Link>
+          </Link> */}
           <LearnersSocialProof />
         </div>
       </div>
