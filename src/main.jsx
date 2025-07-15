@@ -13,6 +13,7 @@ import './index.css'
 import { FaGripLines } from 'react-icons/fa'; // Not needed here, just in single-page.jsx
 import ScrollToTop from './components/ScrollToTop';
 import BookAppointment from './components/book-appointment.jsx';
+import BookTrial from './components/book-trial.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/finding-course" element={<FindingCourseAnimation />} />
         <Route path="/single-page" element={<SinglePage />} />
         <Route path="/book-appointment" element={<BookAppointment />} />
+        <Route path="/book-trial" element={<BookTrial />} />
       </Routes>
     </Router>
   </React.StrictMode>,

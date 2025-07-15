@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
 import { Award, Book, Star, Briefcase, Trophy, Newspaper, Quote, CheckCircle, ChevronDown, Facebook, Twitter, Linkedin, Instagram, Menu } from 'lucide-react';
 import ScrollToTop from './components/ScrollToTop';
 import BookScroller from './components/BookScroller';
+import BookAppointment from './components/book-appointment.jsx';
 
 // New ComparisonCell component (moved to top level for proper definition)
 const ComparisonCell = ({ status, detail, isFabulinusCol }) => {
@@ -103,6 +104,20 @@ const GreatFrameworkSection = () => {
             Explore Courses
           </Link> */}
           <LearnersSocialProof />
+          <div className={`flex flex-col md:flex-row gap-4 mt-8 w-full max-w-xs md:max-w-2xl mx-auto justify-center items-center`}>
+            <Link
+              to="/persona-selection"
+              className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl text-center w-full md:w-auto"
+            >
+              Explore Courses
+            </Link>
+            <Link
+              to="/book-trial"
+              className="inline-block bg-gradient-to-r from-pink-500 to-red-400 text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 hover:from-pink-600 hover:to-red-500 focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-opacity-75 text-xl text-center w-full md:w-auto"
+            >
+              Book Free Trial
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -351,7 +366,6 @@ const Footer = () => {
 // Main App Component - Renders all sections sequentially
 const App = () => {
   return (
-    // The main container's background creates the continuous flow for the entire page
     <div className="min-h-screen bg-white text-gray-800 antialiased overflow-x-hidden">
       <style>
         {`
@@ -390,16 +404,22 @@ const App = () => {
         .accordion-icon.rotate { transform: rotate(180deg); }
         `}
       </style>
-      
-      <Header />
-      <HeroSection />
-      <SolutionsSection /> 
-      <TestimonialsSection />
-      <GreatFrameworkSection />
-      <HowWeAreDifferentSection />
-      <FAQsSection />
-      <Footer />
-      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Header />
+            <HeroSection />
+            <SolutionsSection />
+            <TestimonialsSection />
+            <GreatFrameworkSection />
+            <HowWeAreDifferentSection />
+            <FAQsSection />
+            <Footer />
+            <ScrollToTop />
+          </>
+        } />
+        <Route path="/book-trial" element={<BookAppointment />} />
+      </Routes>
     </div>
   );
 };
@@ -462,11 +482,11 @@ const Header = () => {
       <div className="text-2xl font-extrabold text-red-400">fabulinus</div>
       <div className="flex items-center gap-2">
         <Link
-          to="/persona-selection"
-          className="bg-red-500 text-white hover:bg-red-600 font-bold px-4 py-2 md:px-8 md:py-3 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-sm md:text-base"
-          style={{ minWidth: 'auto' }}
+          to="/book-trial"
+          className="bg-gradient-to-r from-pink-500 to-red-400 text-white font-bold px-4 py-2 md:px-8 md:py-3 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 hover:from-pink-600 hover:to-red-500 focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-opacity-75 text-sm md:text-base w-full text-center"
+          style={{ minWidth: 'auto', maxWidth: '200px' }}
         >
-          Explore Courses
+          Book Free Trial
         </Link>
         <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="flex items-center justify-center p-0 m-0 bg-transparent border-none outline-none focus:outline-none">
           <Menu size={32} className="text-red-600" />
@@ -546,6 +566,20 @@ const HeroSection = () => {
           Explore Courses
         </Link> */}
         <LearnersSocialProof />
+        <div className={`flex flex-col md:flex-row gap-4 mt-8 w-full max-w-xs md:max-w-2xl mx-auto justify-center items-center`}>
+          <Link
+            to="/persona-selection"
+            className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl text-center w-full md:w-auto"
+          >
+            Explore Courses
+          </Link>
+          <Link
+            to="/book-trial"
+            className="inline-block bg-gradient-to-r from-pink-500 to-red-400 text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 hover:from-pink-600 hover:to-red-500 focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-opacity-75 text-xl text-center w-full md:w-auto"
+          >
+            Book Free Trial
+          </Link>
+        </div>
       </div>
       <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-white opacity-20 rounded-full animate-float delay-100"></div>
       <div className="absolute bottom-1/3 right-1/4 w-6 h-6 bg-white opacity-20 rounded-full animate-float delay-300"></div>
@@ -708,6 +742,20 @@ const TestimonialsSection = () => {
             Explore Courses
           </Link> */}
           <LearnersSocialProof />
+          <div className={`flex flex-col md:flex-row gap-4 mt-8 w-full max-w-xs md:max-w-2xl mx-auto justify-center items-center`}>
+            <Link
+              to="/persona-selection"
+              className="inline-block bg-red-500 text-white hover:bg-red-600 font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-opacity-75 text-xl text-center w-full md:w-auto"
+            >
+              Explore Courses
+            </Link>
+            <Link
+              to="/book-trial"
+              className="inline-block bg-gradient-to-r from-pink-500 to-red-400 text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 hover:from-pink-600 hover:to-red-500 focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-opacity-75 text-xl text-center w-full md:w-auto"
+            >
+              Book Free Trial
+            </Link>
+          </div>
         </div>
       </div>
     </section>
