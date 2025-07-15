@@ -1090,11 +1090,11 @@ const SinglePage = () => {
                         year: formData.year || new Date().getFullYear(),
                         courseName: selectedCourse?.programName || '',
                         selectedCourse: selectedCourse,
-                        cta: 'Book a Call'
+                        cta: 'Book Free Trial'
                       }
                     })}
                   >
-                    Book a Call
+                    Book Free Trial
                   </button>
                 </div>
               </div>
